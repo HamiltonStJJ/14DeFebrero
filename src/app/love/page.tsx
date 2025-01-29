@@ -6,7 +6,6 @@ import { HeartHandshake, Sparkles, Stars, Camera, Mail, Music } from 'lucide-rea
 export default function Love() {
   const router = useRouter();
   
-  // Array of photos with their messages
   const photos = [
     {
       src: "/api/placeholder/400/300",
@@ -43,7 +42,6 @@ export default function Love() {
   return (
     <main className="min-h-screen bg-pink-100">
       <div className="max-w-6xl mx-auto p-8">
-        {/* Video Section */}
         <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
           <video 
             className="w-full rounded-2xl"
@@ -56,7 +54,6 @@ export default function Love() {
           </video>
         </div>
 
-        {/* Love Messages Section */}
         <div className="space-y-8 text-center mb-12">
           <div className="animate-fade-in">
             <HeartHandshake className="w-20 h-20 mx-auto text-pink-500 mb-4" />
@@ -68,7 +65,6 @@ export default function Love() {
             </p>
           </div>
 
-          {/* Photo Gallery */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {photos.map((photo, index) => (
               <div key={index} className="group relative transform transition-all duration-300 hover:scale-105">
@@ -99,7 +95,6 @@ export default function Love() {
           </div>
         </div>
 
-        {/* Return Button */}
         <div className="text-center">
           <button
             onClick={() => router.push('/')}

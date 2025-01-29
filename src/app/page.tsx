@@ -31,7 +31,6 @@ export default function Home() {
       );
     }, 5000);
 
-    // Mostrar sparkles cada 7 segundos
     const sparkleTimer = setInterval(() => {
       setShowSparkles(true);
       setTimeout(() => setShowSparkles(false), 1000);
@@ -53,17 +52,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-pink-100 via-red-50 to-purple-100 relative overflow-hidden">
-      {/* Fondo con efectos */}
       <div className="absolute inset-0 bg-[url('/api/placeholder/20/20')] opacity-5 animate-pulse"></div>
       
-      {/* Contenido principal */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         className="relative max-w-4xl mx-auto p-8"
       >
-        {/* Encabezado con animación */}
         <div className="text-center mb-12 relative">
           <motion.div
             animate={{ scale: [1, 1.05, 1] }}
@@ -80,10 +76,9 @@ export default function Home() {
             Hola AnniBuu,
           </motion.h1>
           <p className="text-2xl text-gray-700 italic font-light">
-            "Cada momento contigo es un regalo, ¿me permites seguir creando más momentos juntos?"
+          &quotCada momento contigo es un regalo, ¿me permites seguir creando más momentos juntos?&quot
           </p>
           
-          {/* Efectos de sparkles */}
           <AnimatePresence>
             {showSparkles && (
               <motion.div
@@ -99,7 +94,6 @@ export default function Home() {
           </AnimatePresence>
         </div>
   
-        {/* Carrusel mejorado */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -125,7 +119,6 @@ export default function Home() {
             </motion.div>
           ))}
           
-          {/* Indicadores del carrusel */}
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {images.map((_, index) => (
               <div
@@ -138,7 +131,6 @@ export default function Home() {
           </div>
         </motion.div>
   
-        {/* Sección de botones mejorada */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -183,7 +175,6 @@ export default function Home() {
             </motion.button>
           </div>
   
-          {/* Decoración adicional debajo de los botones */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

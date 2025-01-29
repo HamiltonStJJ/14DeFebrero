@@ -10,9 +10,6 @@ import {
   Moon,
   HeartCrack,
   Flower,
-  Gift,
-  Coffee,
-  Music,
   MessageCircleHeart
 } from 'lucide-react';
 import { useState } from 'react';
@@ -33,7 +30,6 @@ export default function Pregunta1() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200 flex items-center justify-center relative overflow-hidden">
-      {/* Elementos flotantes de fondo */}
       <div className="absolute inset-0 overflow-hidden">
         <Cloud className="w-24 h-24 text-slate-300 absolute top-20 left-20 animate-pulse" />
         <CloudRain className="w-16 h-16 text-slate-400 absolute top-40 right-32 animate-bounce" />

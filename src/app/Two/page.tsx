@@ -61,7 +61,6 @@ export default function Pregunta2() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 flex items-center justify-center relative overflow-hidden">
-      {/* Confeti */}
       {confetti.map((conf, i) => (
         <div
           key={i}
@@ -80,7 +79,6 @@ export default function Pregunta2() {
         />
       ))}
 
-      {/* Elementos decorativos flotantes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <Sparkles className="w-16 h-16 text-sky-200 absolute top-20 left-20 animate-pulse" />
         <Stars className="w-20 h-20 text-blue-200 absolute top-40 right-32 animate-bounce" />
