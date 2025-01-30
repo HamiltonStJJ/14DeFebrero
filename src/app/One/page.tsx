@@ -67,9 +67,6 @@ export default function Pregunta1() {
             <span>Tal vez... quiero pensarlo de nuevo</span>
             <MessageCircleHeart className="w-6 h-6" />
           </button>
-
-          
-
           <p className="text-slate-500 italic text-sm animate-pulse flex items-center justify-center gap-2">
             <HeartCrack className="w-4 h-4" />
             <span>Cada no rompe un corazoncito</span>

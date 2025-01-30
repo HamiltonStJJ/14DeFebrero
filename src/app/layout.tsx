@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "INVITACION OPARA LA MAS HERMOSA",
+  title: "Te amo Angie",
   description: "Hecho con mucho amor para una persona muy especial",
 };
 

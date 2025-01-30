@@ -2,15 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { 
-  Heart, 
-  Sparkles, 
-  Stars, 
-  HeartHandshake, 
-  XCircle,
-  Flower2,
-  SparklesIcon
-} from 'lucide-react';
+import { Heart, Sparkles, Stars, HeartHandshake, XCircle, Flower2, SparklesIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
@@ -19,9 +11,13 @@ export default function Home() {
   const [showSparkles, setShowSparkles] = useState(false);
   
   const images: string[] = [
-    "/api/placeholder/800/400",
-    "/api/placeholder/800/400",
-    "/api/placeholder/800/400",
+    "img/foto3.png",
+    "img/foto2.png",
+    "img/foto3.png",
+    "img/foto4.png",
+    "img/foto5.png",
+    "img/foto6.png",
+    "img/foto7.png"
   ];
 
   useEffect(() => {
@@ -58,25 +54,28 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative max-w-4xl mx-auto p-8"
+        className="relative w-full max-w-lg mx-auto p-4 sm:p-8" // Ajustado el padding y max-width
       >
-        <div className="text-center mb-12 relative">
+        <div className="text-center mb-8 relative"> {/* Reducido el margen inferior */}
           <motion.div
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="inline-block"
           >
-            <Heart className="w-16 h-16 text-pink-500 mx-auto mb-4" />
+            <Heart className="w-12 h-12 sm:w-16 sm:h-16 text-pink-500 mx-auto mb-4" />
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-purple-500 text-transparent bg-clip-text mb-4"
+            className="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-purple-500 text-transparent bg-clip-text mb-4"
           >
-            Hola AnniBuu,
+            Hola mi Amor,
           </motion.h1>
-          <p className="text-2xl text-gray-700 italic font-light">
-          &quotCada momento contigo es un regalo, ¿me permites seguir creando más momentos juntos?&quot
+          <p className="text-lg sm:text-2xl text-gray-700 italic font-light mb-2">
+            Quiero decirte lo mucho que te amo, y quisiera demostrarte que si existe el amor eterno, ya que es lo que realmente siento por ti.
+          </p>
+          <p className="text-lg sm:text-2xl text-gray-700 italic font-light">
+            Eres la mujer que ni soñando me imagine tener a mi lado, y quiero que sepas que eres la mujer de mi vida.
           </p>
           
           <AnimatePresence>
@@ -97,7 +96,8 @@ export default function Home() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="relative h-96 mb-12 rounded-2xl overflow-hidden shadow-2xl group"
+          className="relative w-full mb-8 rounded-2xl overflow-hidden shadow-2xl group"
+          style={{ aspectRatio: '3/4' }} // Mantiene una proporción fija
         >
           {images.map((img, index) => (
             <motion.div
@@ -108,12 +108,12 @@ export default function Home() {
                 scale: index === currentImageIndex ? 1 : 1.1
               }}
               transition={{ duration: 1.5 }}
-              className="absolute w-full h-full"
+              className="absolute inset-0 flex items-center justify-center"
             >
               <img
                 src={img}
                 alt={`Momento ${index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain" // Cambiado a object-contain
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
@@ -137,15 +137,15 @@ export default function Home() {
           transition={{ delay: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 text-transparent bg-clip-text mb-8">
+          <h2 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 text-transparent bg-clip-text mb-6">
             ¿Quieres ser mi San Valentín?
           </h2>
-          <div className="flex justify-center items-center gap-6">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleSiClick}
-              className="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-all duration-300 hover:shadow-pink-500/50 flex items-center gap-2"
+              className="w-full sm:w-auto bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold py-3 sm:py-4 px-8 sm:px-10 rounded-full shadow-lg transition-all duration-300 hover:shadow-pink-500/50 flex items-center justify-center gap-2"
             >
               <span>¡Sí, acepto!</span>
               <motion.div
@@ -160,18 +160,18 @@ export default function Home() {
                 }}
                 className="inline-flex items-center"
               >
-                <HeartHandshake className="w-6 h-6 mr-1" />
-                <SparklesIcon className="w-4 h-4 text-yellow-200" />
+                <HeartHandshake className="w-5 h-5 sm:w-6 sm:h-6 mr-1" />
+                <SparklesIcon className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-200" />
               </motion.div>
             </motion.button>
   
             <motion.button
               whileHover={{ scale: 0.95 }}
               onClick={handleNoClick}
-              className="bg-gradient-to-r from-gray-300 to-gray-400 text-gray-700 font-bold py-4 px-10 rounded-full shadow-lg flex items-center gap-2 hover:opacity-80 transition-all duration-300"
+              className="w-full sm:w-auto bg-gradient-to-r from-gray-300 to-gray-400 text-gray-700 font-bold py-3 sm:py-4 px-8 sm:px-10 rounded-full shadow-lg flex items-center justify-center gap-2 hover:opacity-80 transition-all duration-300"
             >
               <span>No por ahora</span>
-              <XCircle className="w-5 h-5" />
+              <XCircle className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </div>
   
@@ -179,11 +179,11 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="mt-8 flex justify-center space-x-4"
+            className="mt-6 sm:mt-8 flex justify-center space-x-4"
           >
-            <Flower2 className="w-6 h-6 text-pink-400" />
-            <Stars className="w-6 h-6 text-purple-400" />
-            <Sparkles className="w-6 h-6 text-rose-400" />
+            <Flower2 className="w-5 h-5 sm:w-6 sm:h-6 text-pink-400" />
+            <Stars className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" />
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-rose-400" />
           </motion.div>
         </motion.div>
       </motion.div>
