@@ -11,13 +11,14 @@ export default function Home() {
   const [showSparkles, setShowSparkles] = useState(false);
   
   const images: string[] = [
-    "img/foto1.png",
-    "img/foto2.png",
     "img/foto3.png",
+    "img/foto2.png",
+    "img/foto1.png",
     "img/foto4.png",
-    "img/foto5.png",
     "img/foto6.png",
-    "img/foto7.png"
+    "img/foto7.png",
+    "img/foto3.png",
+    "img/foto5.png"
   ];
 
   useEffect(() => {

@@ -1,59 +1,91 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { HeartHandshake, Sparkles, Stars, Camera, Mail, Music } from 'lucide-react';
 
+interface MediaItem {
+  src: string;
+  type: "video" | "image";
+  message: string;
+}
+
 export default function Love() {
   const router = useRouter();
+  const [isPlaying, setIsPlaying] = useState<{ [key: string]: boolean }>({});
   
-  const photos = [
+  const media: MediaItem[] = [
     {
-      src: "img/foto3.png",
+      src: "/img/foto3.png",
+      type: "image",
       message: "A tu lado, hasta los días normales se vuelven especiales.",
-      icon: <HeartHandshake className="w-6 h-6" />
     },
     {
-      src: "img/foto7.png",
+      src: "/img/foto7.png",
+      type: "image",
       message: "No prometo ser perfecto, pero si estar para ti en las buenas y en las malas",
-      icon: <Sparkles className="w-6 h-6" />
     },
     {
-      src: "img/foto8.png",
+      src: "/img/foto1.png",
+      type: "image",
       message: "A tu lado te prometo dar todo mi esfuerzo para salir adelante juntos",
-      icon: <Stars className="w-6 h-6" />
     },
     {
-      src: "img/foto9.png",
-      message: "Nuestros momentos son mi tesoro más valioso ",
-      icon: <Camera className="w-6 h-6" />
+      src: "/img/foto2.png",
+      type: "image",
+      message: "Nuestros momentos son mi tesoro más valioso",
     },
     {
-      src: "img/foto10.png",
-      message: "gracias por cada sonrisa que me regalas ",
-      icon: <Mail className="w-6 h-6" />
+      src: "/mp4/video.mp4",
+      type: "video",
+      message: "gracias por cada sonrisa que me regalas",
     },
     {
-      src: "img/foto11.png",
-      message: "Y quiero viajar contigo a donde sea ",
-      icon: <Music className="w-6 h-6" />
+      src: "/mp4/video1.mp4",
+      type: "video",
+      message: "Y quiero viajar contigo a donde sea",
     },
     {
-      src: "img/foto4.png",
-      message: "Quiero ser tu fotografo personal, para capturar cada momento juntos ",
-      icon: <Music className="w-6 h-6" />
+      src: "/mp4/video2.mp4",
+      type: "video",
+      message: "Quiero ser tu fotografo personal, para capturar cada momento juntos",
     },
     {
-      src: "img/foto14.png",
-      message: "Gracias por llegar a mi vida, desde que estoy contigo soy feliz ",
-      icon: <Music className="w-6 h-6" />
+      src: "/mp4/video3.mp4",
+      type: "video",
+      message: "Gracias por llegar a mi vida, desde que estoy contigo soy feliz",
     }
   ];
 
+  const MediaContent = ({ item, index }: { item: MediaItem; index: number }) => {
+    if (item.type === "video") {
+      return (
+        <video
+          className="absolute top-0 left-0 w-full h-full object-contain bg-pink-50"
+          autoPlay
+          muted
+          playsInline
+          loop
+        >
+          <source src={item.src} type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      );
+    }
+    return (
+      <img
+        src={item.src}
+        alt={item.message}
+        className="absolute top-0 left-0 w-full h-full object-contain bg-pink-50"
+      />
+    );
+  };
+
   return (
     <main className="min-h-screen bg-pink-100">
-      <div className="max-w-lg mx-auto p-4 sm:p-8"> {/* Reducido el max-width y ajustado padding */}
+      <div className="max-w-lg mx-auto p-4 sm:p-8">
         <div className="mb-8 sm:mb-12 rounded-2xl overflow-hidden shadow-2xl">
-          <div className="relative w-full" style={{ paddingTop: '56.25%' }}> {/* Contenedor con aspect ratio 16:9 */}
+          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
             <video 
               className="absolute top-0 left-0 w-full h-full rounded-2xl object-contain bg-black"
               controls
@@ -79,21 +111,16 @@ export default function Love() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mt-8">
-            {photos.map((photo, index) => (
+            {media.map((item, index) => (
               <div key={index} className="group relative transform transition-all duration-300 hover:scale-105">
                 <div className="relative overflow-hidden rounded-2xl shadow-lg">
-                  <div className="relative w-full" style={{ paddingTop: '100%' }}> {/* Contenedor cuadrado */}
-                    <img
-                      src={photo.src}
-                      alt={`Momento ${index + 1}`}
-                      className="absolute top-0 left-0 w-full h-full object-contain bg-pink-50"
-                    />
+                  <div className="relative w-full" style={{ paddingTop: '100%' }}>
+                    <MediaContent item={item} index={index} />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-pink-500/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
                       <div className="flex items-center gap-2 mb-2">
-                        {photo.icon}
-                        <p className="text-sm sm:text-lg font-medium">{photo.message}</p>
+                        <p className="text-sm sm:text-lg font-medium">{item.message}</p>
                       </div>
                     </div>
                   </div>
