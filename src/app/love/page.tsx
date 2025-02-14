@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { HeartHandshake, Sparkles } from 'lucide-react';
 import Image from 'next/image';
