@@ -11,7 +11,7 @@ export default function Home() {
   const [showSparkles, setShowSparkles] = useState(false);
   
   const images: string[] = [
-    "img/foto3.png",
+    "img/foto1.png",
     "img/foto2.png",
     "img/foto3.png",
     "img/foto4.png",
@@ -54,9 +54,9 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative w-full max-w-lg mx-auto p-4 sm:p-8" // Ajustado el padding y max-width
+        className="relative w-full max-w-lg mx-auto p-4 sm:p-8" 
       >
-        <div className="text-center mb-8 relative"> {/* Reducido el margen inferior */}
+        <div className="text-center mb-8 relative"> 
           <motion.div
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -69,13 +69,12 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-purple-500 text-transparent bg-clip-text mb-4"
           >
-            Hola mi Amor,
+            Buenos días amor,
           </motion.h1>
           <p className="text-lg sm:text-2xl text-gray-700 italic font-light mb-2">
-            Quiero decirte lo mucho que te amo, y quisiera demostrarte que si existe el amor eterno, ya que es lo que realmente siento por ti.
-          </p>
+            Desde que llegaste a mi vida, cada día es un poco más especial, contigo todo es mejor, más divertido y hasta los días normales se sienten especiales.           </p>
           <p className="text-lg sm:text-2xl text-gray-700 italic font-light">
-            Eres la mujer que ni soñando me imagine tener a mi lado, y quiero que sepas que eres la mujer de mi vida.
+            Te amo por quien eres y por quien me haces ser 
           </p>
           
           <AnimatePresence>
@@ -97,7 +96,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="relative w-full mb-8 rounded-2xl overflow-hidden shadow-2xl group"
-          style={{ aspectRatio: '3/4' }} // Mantiene una proporción fija
+          style={{ aspectRatio: '3/4' }} 
         >
           {images.map((img, index) => (
             <motion.div
@@ -113,7 +112,7 @@ export default function Home() {
               <img
                 src={img}
                 alt={`Momento ${index + 1}`}
-                className="w-full h-full object-contain" // Cambiado a object-contain
+                className="w-full h-full object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
@@ -137,6 +136,9 @@ export default function Home() {
           transition={{ delay: 0.5 }}
           className="text-center"
         >
+          <p className="text-lg sm:text-2xl text-gray-700 italic font-light mb-2">
+            No necesito un día en el calendario para recordarte lo mucho que significas para mí, pero sí quiero aprovechar esta ocasión para decirte que eres increíble y que me haces muy feliz.
+          </p>
           <h2 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 text-transparent bg-clip-text mb-6">
             ¿Quieres ser mi San Valentín?
           </h2>

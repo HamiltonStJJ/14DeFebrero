@@ -9,12 +9,12 @@ export default function Love() {
   const photos = [
     {
       src: "img/foto3.png",
-      message: "Eres la mujer de mis ojos, los cuales nunca cerraré ",
+      message: "A tu lado, hasta los días normales se vuelven especiales.",
       icon: <HeartHandshake className="w-6 h-6" />
     },
     {
       src: "img/foto7.png",
-      message: "Cada foto que me mandas, me alegra el día ",
+      message: "No prometo ser perfecto, pero si estar para ti en las buenas y en las malas",
       icon: <Sparkles className="w-6 h-6" />
     },
     {

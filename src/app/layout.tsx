@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Te amo Angie",
+  title: "Te amo Ari",
   description: "Hecho con mucho amor para una persona muy especial",
 };
 
