@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { HeartHandshake, Sparkles, Stars, Camera, Mail, Music } from 'lucide-react';
+import { HeartHandshake, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 
 interface MediaItem {
   src: string;
@@ -12,7 +13,6 @@ interface MediaItem {
 
 export default function Love() {
   const router = useRouter();
-  const [isPlaying, setIsPlaying] = useState<{ [key: string]: boolean }>({});
   
   const media: MediaItem[] = [
     {
@@ -57,7 +57,7 @@ export default function Love() {
     }
   ];
 
-  const MediaContent = ({ item, index }: { item: MediaItem; index: number }) => {
+  const MediaContent = ({ item }: { item: MediaItem }) => {
     if (item.type === "video") {
       return (
         <video
@@ -73,9 +73,10 @@ export default function Love() {
       );
     }
     return (
-      <img
+      <Image
         src={item.src}
         alt={item.message}
+        fill
         className="absolute top-0 left-0 w-full h-full object-contain bg-pink-50"
       />
     );
@@ -115,7 +116,7 @@ export default function Love() {
               <div key={index} className="group relative transform transition-all duration-300 hover:scale-105">
                 <div className="relative overflow-hidden rounded-2xl shadow-lg">
                   <div className="relative w-full" style={{ paddingTop: '100%' }}>
-                    <MediaContent item={item} index={index} />
+                    <MediaContent item={item} />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-pink-500/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
